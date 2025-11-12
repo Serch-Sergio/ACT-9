@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serch</title>      
+  <body style="background-image: url(IMAGES/fondoooooo.jpg);">
+  <link rel="icon" href="IMAGES/ICONICON.png">
+  <style>
+    
+
+      #cookie-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    #cookie-popup {
+      background-color: rgb(13, 42, 65);
+      color: rgb(223, 209, 173);
+      padding: 20px 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 400px; /* Más compacto y centrado */
+      margin-bottom: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    #cookie-popup p {
+      margin: 0 0 15px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #cookie-popup button {
+      background-color: rgb(223, 209, 173);
+      color: rgb(13, 42, 65);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 6px;
+      transition: all 0.2s ease;
+    }
+
+    #cookie-popup button:hover {
+      background-color: rgb(13, 42, 65);
+      color: rgb(223, 209, 173);
+    }
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+    header {
+      /*Hola profesor no olvide darle like y suscribirse*/
+      width: 1920px;
+      height: 150px;
+      background-color: rgb(13, 42, 65);
+      color: rgb(223, 209, 173);
+      text-align: center;
+      font-size: 130px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px auto;
+    }
+
+    img {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .menu {
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      background-color: rgb(13, 42, 65);
+      text-align: center;
+      color: white;
+    }
+
+    .gifcalacoso {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(223, 209, 173);
+      padding: 14px;
+      font-size: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Parcial1, .ATAJOS, .UXDESIGN, .lolmemori, .undertula, .Revista, .AURA {
+      width: 1920px;
+      height: 100px;
+      background-color: rgb(13, 42, 65);
+      color: rgb(223, 209, 173);
+      text-align: center;
+      font-size: 80px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px auto;
+    }
+
+    .AURA {
+      background-color: rgb(255, 143, 158);
+    }
+
+    .Revista2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      color: rgb(13, 42, 65);
+      text-align: justify;
+      margin: 25px 370px 85px 100px;
+    }
+
+    .table {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: rgb(223, 209, 173);
+      text-align: left;
+      background-color: rgb(13, 42, 65);
+      border: 1px solid rgb(223, 209, 173);
+      margin: 25px 370px 85px 100px;
+      border-collapse: collapse;
+    }
+
+    td, th {
+      border: 1px solid rgb(223, 209, 173);
+      padding: 8px;
+    }
+    
+
+      #formulario {
+    margin-top: 100px;
+  }
+
+  .form-box {
+    background-color: #0d2a41;
+    border: 2px solid #dfd1ad;
+    display: inline-block;
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dfd1ad;
+  }
+
+  .form-box h2 {
+    margin-top: 0;
+  }
+
+  .form-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 250px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .form-box button {
+    background-color: #dfd1ad;
+    color: #0d2a41;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+  }
+
+  .form-box button:hover {
+    background-color: #0d2a41;
+    color: #dfd1ad;
+  }
+
+  #mensaje {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+  }
+
+    .color-box {
+      width: 1920px;
+      height: 100px;
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hex { background-color: #A68D5C; }
+    .keyword { background-color: #272C4A; }
+    .rgb { background-color: #182B5D; }
+    .rgba { background-color: #3A5075; }
+    .hsl { background-color: #D3B87A; color: #222; }
+    .hsla { background-color: #D7A852; color: #222; }
+
+    footer {
+      background: rgb(13, 42, 65);
+      color: rgb(223, 209, 173);
+      padding: 40px;
+      font-size: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: 20px;  }
+
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 40px;
+        color: #333;
+    }
+
+    h1 {
+        color: #0d2a41;
+        margin-bottom: 40px;
+    }
+
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    #caja {
+        width: 100px;
+        height: 100px;
+        background-color: #0d2a41;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        box-shadow: 0 6px 12px rgba(13, 42, 65, 0.3);
+    }
+
+      .parallax {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcr5WPS5onSul0bvA8eG9GIuXBtI9PREsvKw&s"); 
+            height: 200px;
+            width: 1920px;
+
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 20px;
+
+        }
+        
+      .svg {
+      fill:rgba(13, 42, 65, 0.3);
+          margin-top: 50px;
+      }
+
+    .mover {
+        animation: moverAnim 3s infinite ease-in-out alternate;
+        background-color: #0d2a41;
+    }
+
+    .escalar {
+        animation: escalarAnim 3s infinite ease-in-out alternate;
+        background-color: #0d2a41;
+    }
+
+    .rotar {
+        animation: rotarAnim 3s infinite linear;
+        background-color: #0d2a41;
+    }
+
+    .color {
+        animation: colorAnim 3s infinite ease-in-out alternate;
+        background-color: #0d2a41;
+    }
+
+    @keyframes moverAnim {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(50px); }
+    }
+
+    @keyframes escalarAnim {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.4); }
+    }
+
+    @keyframes rotarAnim {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes colorAnim {
+        0% { background-color: #0d2a41; }
+        100% { background-color: rgb(223, 209, 173); }
+    }
+
+            .im1{
+            filter: blur(6px);
+        }
+        .im2{
+            filter: brightness(50%);
+        }
+        .im3{
+            filter: contrast(50%);
+        }
+        .im4{
+            filter: grayscale(60%);
+        }
+        .im5{
+            filter: invert(70%);
+        } 
+
+  </style>
+</head>
+
+<body>
+  <header>⋆ BITÁCORA SERCH ⋆</header>
+
+  <p id="hora" style="font-size: 42px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: bolder; color: rgb(13, 42, 65);"></p>
+
+  <script>
+    function mostrarHora() {
+      let ahora = new Date();
+      let hora = ahora.toLocaleTimeString();
+      document.getElementById("hora").innerHTML = hora;
+    }
+    setInterval(mostrarHora, 1000);
+    mostrarHora();
+  </script>
+
+
+  <!-- Fondo con la ventana -->
+  <div id="cookie-overlay">
+    <div id="cookie-popup">
+      <p> Esta página utiliza cookies y me veo legalmente forzado a informartelo, más te vale aceptarlas.
+</p>
+      <button id="accept-btn">Aceptar</button>
+      <button id="reject-btn">Rechazar</button>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("cookie-overlay");
+    const acceptBtn = document.getElementById("accept-btn");
+    const rejectBtn = document.getElementById("reject-btn");
+
+    overlay.style.display = "flex";
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesDecision", "accepted");
+      overlay.style.display = "none";
+    });
+
+  </script>
+
+
+
+
+  <img src="IMAGES/tardis.png" width="600" height="600" alt="tardis">
+
+  <nav class="menu">
+    <a href="#DISCO1">DISCO 1</a>
+    <a href="#DISCO2">DISCO 2</a>
+    <a href="#DISCO3">DISCO 3</a>
+  </nav>
+
+  <div class="gifcalacoso">
+    <img src="IMAGES/GIF.gif" width="150" height="150" alt="gif decorativo">
+  </div>
+
+
+  <section id="DISCO1">
+    <div class="Parcial1">DISCO 1</div>
+    <img src="IMAGES/download.gif" width="600" height="600" alt="descarga">
+    
+    <div class="ATAJOS">⋆｡𖦹° ACTIVIDAD 1 °𖦹｡⋆</div>
+    <div class="ATAJOS">Atajos para macOS </div>
+    <img src="IMAGES/ATAJOS.png" width="1280" height="720" alt="atajos">
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 2 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Gráfico de conceptos básicos</div>
+    <img src="IMAGES/TARDIS_page-0001..png" width="1280" height="720">
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 3 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Recreación en FIGMA</div>
+    <img src="IMAGES/Captura de pantalla 2025-09-05 113153.png" width="1280" height="720">
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 4 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Mapa conceptual DOM</div>
+    <img src="IMAGES/DOM.png" width="1280" height="720">
+
+    <div class="lolmemori">⋆｡𖦹° ACTIVIDAD 5 °𖦹｡⋆</div>
+    <div class="lolmemori">Mi primer página web</div>
+    <img src="IMAGES/LOL.png" width="1280" height="720">
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mBDBAqIs5sE?si=QYJ-Yv2N_iPuIDJG" title="Video explicando mi primer pagina web" frameborder="0" allowfullscreen style="display: block; margin: 0 auto;"></iframe>
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 6 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Diagrama despotricando</div>
+    <img src="IMAGES/AAA.png" width="1280" height="720">
+
+    <div class="undertula">⋆｡𖦹° ACTIVIDAD 7 °𖦹｡⋆</div>
+    <div class="undertula">Diagrama de flujo</div>
+    <img src="IMAGES/UNDERTULA.png" width="612" height="792">
+
+    <div class="UXDESIGN">Diagrama de esta página web</div>
+    <img src="IMAGES/Diagrama que busca explicar este codigo.png" width="1280" height="720">
+
+    <div class="Revista">⋆｡𖦹° REVISTA °𖦹｡⋆</div>
+    <img src="IMAGES/REVISTA.png" style="float:left; margin: 20px 40px 20px 370px;">
+    <p class="Revista2">
+       Como estudiante de diseño y artista, creo que la conferencia de Inteligencia Artificial en la UACJ careció de humanidad. Nuestro rector abrazó a un robot, pero no mostró interés por los problemas reales del estudiantado.
+
+Aunque estas charlas eran necesarias, en lugar de inspirar, generaron miedo y dudas sobre nuestro futuro. El temor y la ignorancia pueden llevar al rechazo y al odio, y esta no es la manera de enfrentar el progreso.
+
+Dividir las conferencias por áreas fue adecuado, pero la voz del avance fue entregada a personas con una visión sesgada, centrada en la automatización para unos pocos. Profesores y expertos internos podrían ofrecer perspectivas más amplias y responsables.
+
+Aun así, estas conferencias pueden ser un inicio positivo si se abordan con humanidad y ética. La tecnología no es una amenaza, sino una herramienta para expandir nuestras capacidades y abrir nuevas oportunidades, siempre que aprendamos a usarla con conciencia y esperanza.
+    </p>
+  </section>
+
+  <section id="DISCO2">
+    <div class="ATAJOS">DISCO 2</div>
+    <img src="IMAGES/download.gif" width="600" height="600">
+
+    <div class="undertula">⋆｡𖦹° ACTIVIDAD 1 °𖦹｡⋆</div>
+    <div class="undertula">BOCETOS</div>
+    <img src="IMAGES/Boceto.jpg" width="612" height="792">
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 2 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Wireframes de baja fidelidad</div>
+    <img src="IMAGES/Lorem Ipsum.png" width="1280" height="720">
+
+    <div class="undertula">Wireframes de alta fidelidad</div>
+    <img src="IMAGES/Wireframes mockup.png" width="612" height="792">
+
+    <div class="UXDESIGN">Propuesta en mockup</div>
+    <img src="IMAGES/Lorem Ipamockupsum.png" width="1280" height="720">
+
+    <div class="UXDESIGN">⋆｡𖦹° ACTIVIDAD 3 °𖦹｡⋆</div>
+    <div class="UXDESIGN">Mapa de este sitio</div>
+    <img src="IMAGES/diagrama2.png" width="800" height="800">
+
+    <div class="undertula">⋆｡𖦹° ACTIVIDAD 4 °𖦹｡⋆</div>
+    <div class="undertula">Gráfico de Joan Costa</div>
+    <img src="IMAGES/Joan Costa.png" width="800" height="2000">
+
+    <div class="UXDESIGN">Logo retículado</div>
+    <img src="IMAGES/Iconoreticulado.png" width="1280" height="720">
+
+    <div class="UXDESIGN">Logo con retícula de iOS</div>
+    <img src="IMAGES/Iconooooooo.png" width="1280" height="720">
+
+    <div class="UXDESIGN">Favicon</div>
+    <img src="IMAGES/iconitochikititito.png" width="1280" height="720">
+
+    <div class="UXDESIGN">TABLA</div>
+    <center>
+      <table class="table">
+        <tr><th>NOMBRE</th><th>DURACIÓN</th><th>DISCOS</th><th>ESTRENO</th></tr>
+          <tr><td>The Seventh Seal</td><td>96 min</td><td>1</td><td>1957</td></tr>
+    <tr><td>The Birds</td><td>119 min</td><td>1</td><td>1963</td></tr>
+    <tr><td>Reservoir Dogs</td><td>99 min</td><td>2</td><td>1992</td></tr>
+    <tr><td>Clueless</td><td>97 min</td><td>2</td><td>1995</td></tr>
+    <tr><td>The Matrix</td><td>136 min</td><td>1</td><td>1999</td></tr>
+    <tr><td>American Beauty</td><td>122 min</td><td>1</td><td>1999</td></tr>
+    <tr><td>Girl, Interrupted</td><td>127 min</td><td>1</td><td>1999</td></tr>
+    <tr><td>The Sixth Sense</td><td>107 min</td><td>1</td><td>1999</td></tr>
+    <tr><td>Ghost World</td><td>111 min</td><td>1</td><td>2001</td></tr>
+    <tr><td>Zoolander</td><td>89 min</td><td>1</td><td>2001</td></tr>
+    <tr><td>Cowboy Bebop: The Movie</td><td>115 min</td><td>1</td><td>2001</td></tr>
+    <tr><td>Donnie Darko</td><td>112 min</td><td>1</td><td>2001</td></tr>
+    <tr><td>The Animatrix</td><td>102 min</td><td>1</td><td>2003</td></tr>
+    <tr><td>Lost in Translation</td><td>102 min</td><td>1</td><td>2003</td></tr>
+    <tr><td>Big Fish</td><td>125 min</td><td>1</td><td>2003</td></tr>
+    <tr><td>Eternal Sunshine of the Spotless Mind </td><td>108 min</td><td>1</td><td>2004</td></tr>
+    <tr><td>Mean Girls</td><td>97 min</td><td>2</td><td>2004</td></tr>
+    <tr><td>Napoleon Dynamite</td><td>95 min</td><td>2</td><td>2004</td></tr>
+    <tr><td>Kung Fu Hustle</td><td>98 min</td><td>1</td><td>2004</td></tr>
+    <tr><td>The Life Aquatic with Steve Zissou</td><td>118 min</td><td>1</td><td>2004</td></tr>
+    <tr><td>Borat</td><td>84 min</td><td>1</td><td>2006</td></tr>
+    <tr><td>Juno</td><td>96 min</td><td>1</td><td>2007</td></tr>
+    <tr><td>Madagascar: Escape 2 Africa</td><td>89 min</td><td>1</td><td>2008</td></tr>
+    <tr><td>Hannibal </td><td>42 min</td><td>1</td><td>2013</td></tr>
+    <tr><td>Doctor Who: The Return of Doctor Mysterio   </td><td>60 min</td><td>1</td><td>2016</td></tr>
+    <tr><td>Knives Out</td><td>130 min</td><td>1</td><td>2019</td></tr>
+    <tr><td>Morbius</td><td>104 min</td><td>1</td><td>2022</td></tr>
+
+      </table>
+
+
+      <div id="formulario">
+  <div class="form-box">
+    <h2>¿Qué película me recomiendas agregar a mi colección de DVDs?</h2>
+    <input type="text" id="pelicula" placeholder="Escribe aquí...">
+    <br>
+    <button id="enviar">Enviar</button>
+    <p id="mensaje">No acepto películas malas</p>
+  </div>
+</div>
+
+<script>
+  document.getElementById("enviar").onclick = function() {
+    const pelicula = document.getElementById("pelicula").value.trim();
+
+    if (pelicula === "") {
+      alert("Por favor, ingresa el nombre de una película.");
+    } else {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.style.display = "block";
+    }
+  };
+</script>
+
+
+
+    </center>
+
+    <div class="AURA">Diseño de una página</div>
+    <img src="IMAGES/logorosado.png" width="545" height="258">
+
+    <center>
+      <table cellspacing="20">
+        <tr>
+          <td align="center"><img src="IMAGES/Multimedia.jpeg" width="300" height="300"><br><span>Boceto</span></td>
+          <td align="center"><img src="IMAGES/mapita.png" width="300" height="300"><br><span>Mapa</span></td>
+          <td align="center"><img src="IMAGES/mockup 1.png" width="300" height="300"><br><span>Mockup</span></td>
+        </tr>
+        <tr>
+          <td align="center"><img src="IMAGES/Wireframeschafones.png" width="300" height="758"><br><span>Wireframes fidelidad baja</span></td>
+          <td align="center"><img src="IMAGES/Diagramaaura.png" width="300" height="758"><br><span>Diagrama de flujo</span></td>
+          <td align="center"><img src="IMAGES/Wireframes alta.png" width="300" height="758"><br><span>Wireframes fidelidad alta</span></td>
+        </tr>
+      </table>
+      <div style="position: relative; width: 80%; height: 0; padding-top: 56.25%; margin: 1.6em auto;">
+        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="https://www.canva.com/design/DAG1r7xKEjw/ScFjJ5VnHPJUodwkjo69cA/view?embed" allowfullscreen></iframe>
+      </div>
+    </center>
+  </section>
+
+  <section id="DISCO3">
+    <div class="Parcial1">DISCO 3</div>
+    <img src="IMAGES/download.gif" width="600" height="600">
+
+    <div class="UXDESIGN">ACTIVIDAD 1</div>
+    <div class="UXDESIGN">Color en CSS</div>
+    <div class="color-box hex">Hexa #A68D5C</div>
+    <div class="color-box keyword">Keywords #272C4A</div>
+    <div class="color-box rgb">RGB #182B5D</div>
+    <div class="color-box rgba">RGBa #3A5075</div>
+    <div class="color-box hsl">HSL #D3B87A</div>
+    <div class="color-box hsla">HSLa #D7A852</div>
+
+    <div class="UXDESIGN">ACTIVIDAD 2</div>
+    <div class="UXDESIGN">PÁGINA WEB IA</div>
+    <img src="IMAGES/IA void.png" width="1280" height="720">
+
+    <div class="UXDESIGN">PÁGINA WEB IA corregida</div>
+    <img src="IMAGES/no tan void.png" width="1280" height="720">
+    </section>
+
+  <div class="parallax"></div>
+
+      <div class="UXDESIGN">ACTIVIDAD 3</div>
+    <div class="UXDESIGN">Animaciones</div>
+  <div class="contenedor">
+        <div id="caja" class="mover">Mover</div>
+        <div id="caja" class="escalar">Escalar</div>
+        <div id="caja" class="rotar">Rotar</div>
+        <div id="caja" class="color">Color</div>
+    </div>
+
+        <img class="opa" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+  
+    </div>
+    <img class="im1" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+    <img class="im2" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+    <img class="im3" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+    <img class="im4" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+    <img class="im5" src="https://purepng.com/public/uploads/thumbnail/purepng.com-skullskullvertebratesfacehuman-skullskeletonhead-14215269683682iszb.png">
+</body>
+ 
+</html>
+
+
+
+  <div class="svg">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" fill="currentColor" class="bi bi-sign-dead-end" viewBox="0 0 16 16">
+  <path d="M4.783 6v2h.69c.593 0 .886-.359.886-1.002S6.07 6 5.473 6zm.333.28h.32c.395 0 .582.24.582.722 0 .48-.186.718-.581.718h-.321zM7.82 7.72h-.918v-.602h.863V6.85h-.863v-.57h.917V6H6.571v2H7.82zm.573-.274L8.216 8h-.34l.688-2h.371l.689 2h-.352l-.177-.554zm.627-.255-.268-.845h-.015l-.27.845zM9.746 6v2h.69c.593 0 .886-.359.886-1.002S11.032 6 10.436 6zm.333.28h.32c.394 0 .582.24.582.722 0 .48-.186.718-.582.718h-.32zm-4.173 4.44h.917V11H5.575V9h1.248v.28h-.917v.57h.863v.268h-.863zm1.489.28V9.56h.013L8.344 11h.292V9h-.32v1.436h-.014L7.369 9h-.293v2zm1.56 0V9h.69c.596 0 .886.355.886.998S10.238 11 9.645 11zm.653-1.72h-.32v1.44h.32c.395 0 .581-.239.581-.718 0-.481-.187-.722-.581-.722"/>
+  <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098zm-1.4.7a.495.495 0 0 1 .7 0l6.516 6.515a.495.495 0 0 1 0 .7L8.35 14.866a.495.495 0 0 1-.7 0L1.134 8.35a.495.495 0 0 1 0-.7L7.65 1.134Z"/>
+</svg>
+</div>
+
+  <footer>
+    CUADRO DE DATOS — Serch / Sergio David Borrego Peraza — 217848
+  </footer>
+</body>
+</html>
